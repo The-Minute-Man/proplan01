@@ -1,56 +1,21 @@
-// src/App.tsx
-
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("unknown");
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button
-          onClick={() => setCount((count) => count + 1)}
-          aria-label="increment"
-        >
-          count is {count}
-        </button>
-        <p>
-          Testing Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <div className="card">
-        <button
-          onClick={() => {
-            fetch("/api/")
-              .then((res) => res.json() as Promise<{ name: string }>)
-              .then((data) => setName(data.name));
-          }}
-          aria-label="get name"
-        >
-          Name from API is: {name}
-        </button>
-        <p>
-          Edit <code>api/index.ts</code> to change the name
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click Your Mom
-      </p>
-    </>
-  );
+    return (
+        <div className="app">
+            <nav>
+                <Link to="/" className="app-link">Home</Link>
+                <Link to="/planner" className="app-link">Planner</Link>
+                <Link to="/activitysetter" className="activity-setter">Activity Setter</Link>
+            </nav>
+            <div className="app-main">
+                <h1 className="app-title">ProPlan</h1>
+                <p className="app-description">Your ultimate tool for organizing tasks and planning your day with ease.</p>
+            </div>
+        </div>
+    );
 }
 
 export default App;
